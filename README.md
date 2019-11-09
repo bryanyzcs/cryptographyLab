@@ -5,4 +5,4 @@
                 CertificationSystem
                 BankSystem
                 readme
-## Tomcat + SpringMVC + mybatis + MySQL 配置
+## Tomcat + Maven + SpringMVC + mybatis + MySQL 配置
