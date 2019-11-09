@@ -2,7 +2,7 @@
 
 ## 仓库结构
                 Ecommerce
-                CA
-                bankSystem
+                CertificationSystem
+                BankSystem
                 readme
 ## Tomcat + SpringMVC + mybatis + MySQL 配置
