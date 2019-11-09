@@ -1,8 +1,8 @@
 # cryptographyLab
 
 ## 仓库结构
-                <strong>Ecommerce
+                Ecommerce
                 CA
                 bankSystem
-                readme</strong>
+                readme
 ## Tomcat + SpringMVC + mybatis + MySQL 配置
