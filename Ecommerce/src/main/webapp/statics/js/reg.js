@@ -3,22 +3,28 @@ function register(){
     var pwd = $("#form-pwd");
     var repwd = $("#form-equalTopwd");
     var rsapwd = $("#rsaPwd");
-    var errno = $("#errno");
+    var input_tip = $('div.input-tip span');
+
 
     var nameRe = "[\u4e00-\u9fa5_-A-za-z]+";
     var nameLen = account.val().length;
     if(nameLen < 4 || nameLen > 20){
-        errno.innerText = "用户名错误，支持中文、英文、数字、“-”、“_”的组合，4-20个字符";
-        return false
+        $(input_tip.get(0)).html("<i class='i-error'></i>用户名不符合要求，请重试");
+        pwd.val("");
+        repwd.val("");
+        return false;
     }
 
     var pwdLen = pwd.val().length;
     if(pwdLen < 8 || pwdLen > 20){
-        errno.text("密码格式错误， 建议使用字母、数字和符号两种及以上的组合，8-20个字符");
+        $(input_tip.get(1)).html("<i class='i-error'></i>密码字符数不符合要求");
+        pwd.val("");
+        repwd.val("");
         return false;
     }
     if(pwd.val() !== repwd.val()){
-        errno.text("两次输入的密码不一致请重新输入，请重新输入");
+        $(input_tip.get(1)).html("<i class='i-error'></i>两次输入的密码不一致，请重试");
+        /*errno.text("两次输入的密码不一致请重新输入，请重新输入");*/
         pwd.val("");
         repwd.val("");
         return false;

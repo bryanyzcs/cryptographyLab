@@ -8,3 +8,14 @@
     height:120px;
     font-size:0
 }
+
+.mylogin-text {
+    width: 300px;
+    /*padding-left: 140px;*/
+    font-size: 14px;
+    line-height: 37px;
+    height: 40px;
+    padding: 11px 8px 11px 50px;
+    border: 1px solid #ddd;
+}
+

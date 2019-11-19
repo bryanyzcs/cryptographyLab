@@ -52,7 +52,7 @@
         <div class="main">
             <div class="reg-form">
                 <%--<form action="register-form" method="GET">--%>
-                <form action="register-form" id="reg-form" onsubmit="return false">
+                <form action="" id="reg-form" onsubmit="return false">
                     <input id="slideScene" value="reg" type="hidden"></input>
                     <input id="slideProduct" value="embed" type="hidden"></input>
                     <input id="slideWidth" value="100%" type="hidden"></input>
@@ -67,7 +67,7 @@ vLRNLr+uu8KuD82tnQIDAQAB
 -----END PUBLIC KEY-----">
                     <input type="hidden" id="popupProtocol" value="1">
                     <div id="step1-wrap">
-                        <div class="form-item form-item-account", id="form-item-account">
+                        <div class="form-item form-item-account" id="form-item-account">
                             <label>用 户 名</label>
                             <input type="text" id="form-account" name="regName" class="field" autocomplete="off" maxlength="20" placeholder="您的账户名和登录名" default="<i class='i-def'></i>支持中文、英文、数字、“-”、“_”的组合，4-20个字符">
                             <i class="i-status"></i>
@@ -91,15 +91,17 @@ vLRNLr+uu8KuD82tnQIDAQAB
                             <i class="i-status"></i>
                             <i class="i-cancel"></i>
                         </div>
-                    </div>
-                    <div class="form-agreen">
-                    </div>
-                    <input class="btn-register" type="button" value="立即注册" onclick="register()">
-                    <div>
-                        <span id="errno"></span>
+                        <div class="input-tip">
+                            <span></span>
+                        </div>
+                        <div>
+                            <button class="btn-register" onclick="register()">立即注册</button>
+                        </div>
+                        <div class="input-tip">
+                            <span></span>
+                        </div>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>

@@ -34,14 +34,8 @@ public class controller {
     }
 
     @RequestMapping("/login")
-    public String login(Model model, @RequestParam String userName, @RequestParam String password){
-        UserInfo userInfo = new UserInfo();
-        userInfo.setUsername(userName);
-        userInfo.setPassword(password);
-        user.insertUserInfo(userInfo);
-        UserInfo queryInfo = user.findUserByName("chen");
-        model.addAttribute("password", queryInfo.getPassword());
-        return "findUser";
+    public String login(Model model){
+        return "login";
     }
 
     @RequestMapping(value="/register-form", produces="application/json; charset=UTF-8")
