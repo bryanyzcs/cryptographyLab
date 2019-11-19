@@ -1,10 +1,10 @@
 package ecommerce.mapper;
 
-import ecommerce.pojo.User;
+import ecommerce.pojo.UserInfo;
 
 public interface UserMapper {
 
+    public UserInfo selectUseByName(String userName);
 
-    public User selectUseById(int userId);
-
+    public boolean insertUserInfo(UserInfo userInfo);
 }

@@ -1,0 +1,10 @@
+.mylogo_tit_lk{
+    background-image:url(http://localhost:8080/Ecommerce/image/icon.png);
+    background-position:0 0;
+    background-repeat:no-repeat;
+    overflow:hidden;
+    display:block;
+    width:190px;
+    height:120px;
+    font-size:0
+}

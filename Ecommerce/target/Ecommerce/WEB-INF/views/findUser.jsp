@@ -12,6 +12,7 @@
 <center>
     通过controller访问<br/>
     欢迎<br/>
+   <h1> password : ${password}</h1>
     <%
         /*WebApplicationContext wac = WebApplicationContextUtils
                 .getWebApplicationContext(this.getServletContext());

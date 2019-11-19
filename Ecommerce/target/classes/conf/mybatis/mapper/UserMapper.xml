@@ -3,7 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ecommerce.mapper.UserMapper">
     <!--  查询单条记录  -->
-    <select id="selectUseById" parameterType="int" resultType="User">
-       select * from t_user where userId = #{userId}
+    <select id="selectUseByName" parameterType="String" resultType="UserInfo">
+       select * from userinfo where userName = #{userName}
     </select>
+
+    <insert id="insertUserInfo" parameterType="UserInfo">
+        insert into userinfo values (#{userName}, #{password})
+    </insert>
 </mapper>

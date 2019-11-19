@@ -1,37 +1,72 @@
 package ecommerce.controllers;
 
+import ecommerce.ResponseResult;
 import ecommerce.dao.UserDao;
 import ecommerce.dao.UserDaoImpl;
-import ecommerce.pojo.User;
+import ecommerce.mapper.UserMapper;
+import ecommerce.pojo.UserInfo;
+import ecommerce.security.Keys;
+import ecommerce.security.Rsa;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+
 
 @Controller
 public class controller {
-    @RequestMapping(value="/findUser",method = RequestMethod.POST)
+
+    @Resource
+    private UserDaoImpl user = new UserDaoImpl();
+
+    @RequestMapping(value="/findUser",method = RequestMethod.GET)
     public String getUser(Model model){
+        UserInfo userInfo = user.findUserByName("li");
+        model.addAttribute("password", /*userInfo.getPassword()*/ "hello");
         return "findUser";
     }
-    @Resource
-    private UserDao userdao;
-
-    @RequestMapping("/home")
-    public String getIndex(Model model){
 
 
-        User user = userdao.findUserById(1);
-        if(user == null){
-            System.out.println("can't find the user with userId 1");
-        }
-        else {
-            model.addAttribute("name", user.getUserAge());
-        }
+    @RequestMapping("/")
+    public String getHome(Model model){
         return "index";
+    }
+
+    @RequestMapping("/login")
+    public String login(Model model, @RequestParam String userName, @RequestParam String password){
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUsername(userName);
+        userInfo.setPassword(password);
+        user.insertUserInfo(userInfo);
+        UserInfo queryInfo = user.findUserByName("chen");
+        model.addAttribute("password", queryInfo.getPassword());
+        return "findUser";
+    }
+
+    @RequestMapping(value="/register-form", produces="application/json; charset=UTF-8")
+    @ResponseBody
+    public ResponseResult regForm(@RequestParam String regName, @RequestParam String rsapwd) throws Exception {
+        Rsa rsa= new Rsa();
+        String priKeyStr = Keys.getRsaPrivateKey();
+        rsa.loadPrivateKey(priKeyStr);
+        String pwd = new String(rsa.decrypt(rsa.base64Decode(rsapwd)));
+        if(user.findUserByName(regName) != null) {
+            return ResponseResult.createErrMessage("账户已存在");
+        }
+        else{
+            UserInfo userInfo = new UserInfo();
+            userInfo.setUsername(regName);
+            userInfo.setPassword(pwd);
+            user.insertUserInfo(userInfo);
+            return ResponseResult.createOkMessage("账户注册成功");
+        }
+
+
+    }
+
+    @RequestMapping("/register")
+    public String register(Model model){
+        return "register";
     }
 }

@@ -1,7 +1,10 @@
 package ecommerce.dao;
 
-import ecommerce.pojo.User;
+import ecommerce.pojo.UserInfo;
 
 public interface UserDao {
-    public User findUserById(int id);
+
+    public UserInfo findUserByName(String userName);
+
+    public boolean insertUserInfo(UserInfo userInfo);
 }

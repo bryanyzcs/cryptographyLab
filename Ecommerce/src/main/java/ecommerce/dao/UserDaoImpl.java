@@ -2,11 +2,9 @@ package ecommerce.dao;
 
 
 import ecommerce.mapper.UserMapper;
-import ecommerce.pojo.User;
+import ecommerce.pojo.UserInfo;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
-import org.springframework.test.context.ContextConfiguration;
-
 import javax.annotation.Resource;
 
 @Service("userDaoImpl")
@@ -17,11 +15,13 @@ public class UserDaoImpl implements UserDao{
     private UserMapper userMapper;
 
     @Override
-    public User findUserById(int id){
-        User user = userMapper.selectUseById(id);
-        if(user == null){
-            throw new NullPointerException();
-        }
+    public UserInfo findUserByName(String userName){
+        UserInfo user = userMapper.selectUseByName(userName);
         return user;
+    }
+
+    @Override
+    public boolean insertUserInfo(UserInfo userInfo){
+        return userMapper.insertUserInfo(userInfo);
     }
 }
