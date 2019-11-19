@@ -17,3 +17,19 @@ SpringMVC的原理简介-> https://www.w3cschool.cn/spring_mvc_documentation_lin
 
 ### mybatis简介及其配置
 Mabatis的简介及其相关配置 -> https://mybatis.org/mybatis-3/zh/sqlmap-xml.html
+
+## JS + JQuery + AJAX的前端设计
+
+### JS基础
+
+
+
+
+### JQuery文档
+
+
+### AJAX简介
+
+
+
+
