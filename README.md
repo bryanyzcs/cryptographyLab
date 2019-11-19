@@ -21,14 +21,19 @@ Mabatis的简介及其相关配置 -> https://mybatis.org/mybatis-3/zh/sqlmap-xm
 ## JS + JQuery + AJAX的前端设计
 
 ### JS基础
+JS教程 -> https://www.liaoxuefeng.com/wiki/1022910821149312
+MDN的JS文档 -> https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide
 
-
-
+MDN还有关于HTML以及CSS的文档
 
 ### JQuery文档
 
+上面的JS教程中有部分关于JQuery的介绍，具体可参考 JQuery文档 -> https://api.jquery.com/
+
 
 ### AJAX简介
+
+上面的JS教程中有部分关于AJAX的介绍，具体可参考JQuery中关于AJAX的文档 -> https://api.jquery.com/category/ajax/
 
 
 
