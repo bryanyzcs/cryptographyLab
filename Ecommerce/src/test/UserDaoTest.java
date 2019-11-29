@@ -1,6 +1,7 @@
+/*
 import ecommerce.dao.UserDao;
 import ecommerce.mapper.UserMapper;
-import ecommerce.pojo.User;
+import ecommerce.pojo.UserInfo;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -12,12 +13,22 @@ import java.io.InputStream;
 import java.util.List;
 
 public class UserDaoTest {
-    private static Logger logger = Logger.getLogger(UserDaoTest.class);
+   // private static Logger logger = Logger.getLogger(UserDaoTest.class);
 
     public static void main(String[] args) {
         //testMybatis();
-        testSpringMybatis();
+       // testSpringMybatis();
+       // testParserCert();
     }
+
+    private static void testParserCert(){
+
+        PEMParser r = new PEMParser(new FileReader(certFile));
+        System.out.println(r.ready());
+        PemObject object = r.readPemObject();
+        X509CertificateHolder cert = new X509CertificateHolder(object.getContent());
+    }
+
 
     private static void testSpringMybatis(){
         ApplicationContext context = new ClassPathXmlApplicationContext("conf/spring-mybatis.xml");
@@ -54,4 +65,4 @@ public class UserDaoTest {
             session.close();
         }
     }
-}
+}*/

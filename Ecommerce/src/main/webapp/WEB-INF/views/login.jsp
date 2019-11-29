@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="https://g.alicdn.com/vip/login/0.5.65/css/new-loginV2.css?t=20151220" />
     <link rel="stylesheet" href="https://g.alicdn.com/vip/login/0.5.65/css/page.css?t=20151220" />
     <link href="//localhost:8080/Ecommerce/css/myIndex.chunk.css" rel="stylesheet"/>
+    <script type="text/javascript" src="//localhost:8080/Ecommerce/js/verify.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//localhost:8080/Ecommerce/js/jsrsasign.js"></script>
+    <script type="text/javascript" src="//localhost:8080/Ecommerce/js/log.js"></script>
+    <script type="text/javascript" src="//localhost:8080/Ecommerce/js/jsencrypt.js"></script>
 </head>
 <body body class="chl-reg" data-spm="1">
 <div id="page" class="">
@@ -52,7 +58,7 @@
                         <div class="static-form " id="J_StaticForm">
                             <div class="login-title">密码登录</div>
                             <%--<form action="/member/login.jhtml?redirectURL=https%3A%2F%2Fai.taobao.com%2Fsearch%2Findex.htm%3Fkey%3D%25E8%25BF%259E%25E8%25A1%25A3%25E8%25A3%2599%26pid%3Dmm_12238993_43806065_714972723%26gclid%3DCjwKCAiAws7uBRAkEiwAMlbZjuTPDRNE0L3FtlHIQhg12ACFatjGAIAHbuFnCyoQ-BdEgqsfHtIQThoCrMAQAvD_BwE"  method="post" id="J_Form">--%>
-                            <form action="" id="J_Form" method="post">
+                            <form action="" id="J_Form" method="post" onsubmit="return false">
                                 <div id="J_Message" style="display:none;" class="login-msg error">
                                     <i class="iconfont">&#xe604;</i>
                                     <p class="error"></p>
@@ -65,20 +71,21 @@
                                         </i>
                                     </label>
                                     <span class="ph-label">会员名/邮箱/手机号</span>
-                                    <input type="text" name="TPL_username" id="TPL_username_1" class="mylogin-text J_UserName" value="" maxlength="32"/>
+                                    <input type="text" name="logName" id="TPL_username_1" class="mylogin-text J_UserName" value="" maxlength="32"/>
                                 </div>
                                 <div class="field pwd-field">
                                     <label id="password-label" for="TPL_password_1">
                                         <i class="icon iconfont" title="登录密码">&#xe600;</i>
                                     </label>
                                     <span id="J_StandardPwd">
-                                        <input type="password" name="TPL_password" id="TPL_password_1" class="mylogin-text" maxlength="40" autocomplete="off"/>
+                                        <input type="password" <%--name="TPL_password"--%> id="TPL_password_1" class="mylogin-text" maxlength="40" autocomplete="off"/>
                                     </span>
                                 </div>
 
                                 <!-- use new slide checkcode -->
                                 <div id="nocaptcha" class="nc-container tb-login"></div>
                                 <div class="submit">
+                                    <input id="rsaPwd", name="rsapwd" type="hidden">
                                     <%--<input id="J_NcoSig" name="ncoSig" type="hidden" />
                                     <input id="J_NcoSessionid" name="ncoSessionid" type="hidden" />
                                     <input id="J_NcoToken" type="hidden" name="ncoToken" value="d07312112bbd333d54c71c995a50599a3a9b264c" />
@@ -134,7 +141,13 @@
                                     <input type="hidden" name="mobileLoginLink" value="https://login.taobao.com/member/login.jhtml?spm=a231o.7712113/g.1997563269.1.771146089sTDZE&amp;prepvid=200_11.186.129.238_3539_1574170578385&amp;extra=&amp;f=top&amp;redirectURL=https://ai.taobao.com/search/index.htm?key=%E8%BF%9E%E8%A1%A3%E8%A3%99&amp;pid=mm_12238993_43806065_714972723&amp;gclid=CjwKCAiAws7uBRAkEiwAMlbZjuTPDRNE0L3FtlHIQhg12ACFatjGAIAHbuFnCyoQ-BdEgqsfHtIQThoCrMAQAvD_BwE&amp;pid=mm_12238993_43806065_714972723&amp;clk1=&amp;unid=&amp;source_id=&amp;app_pvid=200_11.186.129.238_3539_1574170578385&amp;useMobile=true" />
                                     <input type="hidden" name="showAssistantLink" value="" />
                                     <input id="J_UnitClose " value="true" type="hidden" />--%>
-                                    <button type="submit" class="J_Submit" id="J_SubmitStatic" data-ing="正在登录...">登 录</button>
+                                        <input id="pubkey" type="hidden" value="-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCuXbbEYtjL8+BEoLGiB0Bha615
+QjFQlY9vnMdgGuluXIrBqlbOdv9/cQEtjJVQuSgzno0wXYr6C7X2wTB13TDbvukt
+Oq+LiEs29xWTy8ghkrdhvUhndUhIcEaGC3bopth0tntRunrH03yWWa+tePMgBve/
+vLRNLr+uu8KuD82tnQIDAQAB
+-----END PUBLIC KEY-----">
+                                    <button class="J_Submit" id="J_SubmitStatic" data-ing="正在登录..." onclick="login()">登 录</button>
                                 </div>
                                 <div class="login-links">
                                     <a <%--href="https://passport.taobao.com/ac/password_find.htm?from_site=0&login_id=&lang=zh_CN&app_name=&tracelog=signin_main_pass"--%> tabindex="6" class="forget-pwd" target="_blank">

@@ -6,6 +6,14 @@
 <head>
     <title>欢迎访问</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="//localhost:8080/Ecommerce/js/x509-1.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//localhost:8080/Ecommerce/js/verify.js"></script>
+    <script type="text/javascript" src="//localhost:8080/Ecommerce/js/asn1hex-1.1.js"></script>
+    <script type="text/javascript" src="//localhost:8080/Ecommerce/js/base64x-1.1.js"></script>
+    <script type="text/javascript" src="//localhost:8080/Ecommerce/js/base64.js"></script>
+    <script type="text/javascript" src="//localhost:8080/Ecommerce/js/jsbn.js"></script>
+    <script type="text/javascript" src="//localhost:8080/Ecommerce/js/jsrsasign.js"></script>
     <link href="//misc.360buyimg.com/mtd/pc/index_2019/1.0.0/static/css/first-screen.chunk.css" rel="stylesheet"/>
     <link href="//misc.360buyimg.com/mtd/pc/index_2019/1.0.0/static/css/index.chunk.css" rel="stylesheet"/>
     <link href="//localhost:8080/Ecommerce/css/myIndex.chunk.css" rel="stylesheet"/>

@@ -11,11 +11,22 @@
 
 .mylogin-text {
     width: 300px;
-    /*padding-left: 140px;*/
     font-size: 14px;
     line-height: 37px;
     height: 40px;
     padding: 11px 8px 11px 50px;
     border: 1px solid #ddd;
 }
-
+.myfield{
+    border: aqua;
+    height: 52px;
+    line-height: 50px;
+    font-size: 14px;
+    padding: 11px 0px 11px;
+    width: 250px;
+}
+.myfield:-ms-input-placeholder{color:#ccc}
+.myfield::-webkit-input-placeholder{color:#ccc}
+.myfield:-moz-placeholder{color:#ccc}
+.myfield::-moz-placeholder{color:#ccc}
+.myfield:-ms-input-placeholder{color:#ccc}

@@ -63,9 +63,4 @@ public class Rsa {
         cipher.init(Cipher.ENCRYPT_MODE, publicKey);
         return cipher.doFinal(message.getBytes("UTF-8"));
     }
-
-
-
-
-
 }

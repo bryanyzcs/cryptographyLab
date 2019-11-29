@@ -39,10 +39,10 @@ function register(){
         data: $("#reg-form").serialize(),
         success: function(result){
             if(result.code == 200){
-                alert(result.message);
+                window.location.href = "/Ecommerce";
             }
             else {
-                errno.text(result.message);
+                $(input_tip.get(0)).html("<i class='i-error'></i>" + result.message);
             }
 
         },
