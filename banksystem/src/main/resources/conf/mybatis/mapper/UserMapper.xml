@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banksystem.mapper.UserMapper">
+    <!--  查询单条记录  -->
+    <select id="selectUseByName" parameterType="String" resultType="User">
+       select * from zxzx where usrName = #{usrName}
+    </select>
+    <insert id="addUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO zxzx(usrName,password,money) VALUES(#{usrName},#{password},#{money})
+    </insert>
+</mapper>
