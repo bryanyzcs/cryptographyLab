@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="banksystem.mapper.UserMapper">
+<mapper namespace="banksystem.mapper.AccountMapper">
     <!--  查询单条记录  -->
-    <select id="selectUseByName" parameterType="String" resultType="User">
-       select * from zxzx where usrName = #{usrName}
+    <select id="selectAccountByName" parameterType="String" resultType="Account">
+       select * from account where name = #{name}
     </select>
-    <insert id="addUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO zxzx(usrName,password,money) VALUES(#{usrName},#{password},#{money})
-    </insert>
+
+    <select id="selectAccountByCardId" parameterType="String" resultType="Account">
+        select * from account where cardid = #{cardId}
+    </select>
+
+    <update id="updateBalance">
+        update account set balance = #{balance} where name = #{name} and cardid = #{cardid}
+    </update>
 </mapper>

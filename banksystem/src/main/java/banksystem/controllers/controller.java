@@ -1,112 +1,110 @@
 package banksystem.controllers;
 
 import banksystem.ResponseResult;
-import banksystem.dao.UserDao;
-import banksystem.dao.UserDaoImpl;
-import banksystem.pojo.User;
-import org.apache.ibatis.jdbc.Null;
+import banksystem.dao.AccountDao;
+import banksystem.dao.AccountDaoImpl;
+import banksystem.pojo.Account;
+import banksystem.pojo.TransferRecord;
+import banksystem.security.Keys;
+import banksystem.security.Rsa;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.ui.ModelMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 @Controller
 public class controller {
 
-//    @RequestMapping(value = "/findUser", method = RequestMethod.POST)
-//    public String login(@RequestParam("username") String username, @RequestParam("password") String password, Model model) {
-//        if (userdao.findUsrByName(username)== null)
-//        {
-//            model.addAttribute("msg", "用户不存在！考虑注册?");
-//            return "index";
-//        }
-//        if (password.equals(userdao.findUsrByName(username).getPassword())) {
-//            User user = userdao.findUsrByName(username);
-//            model.addAttribute("msg", username);
-//            model.addAttribute("msg1", user.getMoney());
-//            return "findUser";
-//        }
-//        else {
-//            model.addAttribute("msg", "密码错误！");
-//            return "index";
-//        }
-//    }
 
 
     @Resource
-    private UserDao userdao;
+    private AccountDaoImpl accountService = new AccountDaoImpl();
 
-
-
-
-    @RequestMapping("/home")
+    @RequestMapping("/")
     public String getIndex(){
-
-//        String n="zhang";
-//        User user = userdao.findUsrByName(n);
-//        if(user == null){
-//            System.out.println("can't find the user with usrName zhang");
-//        }
-//        else {
-//            model.addAttribute("name", user.getUsrName());
-//        }
         return "index";
     }
-    @RequestMapping("/findUser")
-    public String loginin(){
-        return "findUser";
+
+    @RequestMapping("/login")
+    public String login(Model model){
+        return "login";
     }
-    @RequestMapping(value="/register-form", produces="application/json; charset=UTF-8")
-    @ResponseBody
-    public ResponseResult regForm(@RequestParam String regName, @RequestParam String pwd) throws Exception {
 
-        if(userdao.findUsrByName(regName) != null) {
-            return ResponseResult.createErrMessage("账户已存在");
-        }
-        else{
-            User user=new User();
-            user.setMoney(0);
-            user.setPassword(pwd);
-            user.setUsrName(regName);
-            boolean flag=userdao.addUserByreg(user);
-            if(flag){
-                return ResponseResult.createOkMessage("账户注册成功");
-            }
-            else
-                return ResponseResult.createErrMessage("注册失败");
-        }
-
-
-    }
     @RequestMapping(value="/login-form", produces="application/json; charset=UTF-8")
     @ResponseBody
-    public ResponseResult logForm(@RequestParam String userName, @RequestParam String password,Model model) throws Exception {
-
-        if(userdao.findUsrByName(userName) == null) {
-            return ResponseResult.createErrMessage("账户不存在");
+    public ResponseResult logFrom(@RequestParam String cardId, @RequestParam String rsapwd, HttpSession session) throws Exception {
+        Rsa rsa= new Rsa();
+        String priKeyStr = Keys.getRsaPrivateKey();
+        rsa.loadPrivateKey(priKeyStr);
+        String pwd = new String(rsa.decrypt(rsa.base64Decode(rsapwd)));
+        Account logAccount = accountService.findAccountByCardId(cardId);
+        if(logAccount == null){
+            return ResponseResult.createErrMessage("您输入的用户名不存在");
         }
-        else{
-            User user=userdao.findUsrByName(userName);
-
-            if(password.equals(user.getPassword())){
-
-                return ResponseResult.createOk(null);
-            }
-            else{
-                return ResponseResult.createErrMessage("密码错误");
-            }
-
+        else if(logAccount.getPasswd().equals(pwd) == false){
+            return ResponseResult.createErrMessage("您输入的用户名和密码不匹配，请重新输入");
         }
-
-
-
+        session.setAttribute("loginAccount", logAccount);
+        return ResponseResult.createOk(null);
     }
 
+    @RequestMapping("/logout")
+    public String logout(Model model, HttpSession session){
+        session.setAttribute("loginAccount", null);
+        return "index";
+    }
 
+    @RequestMapping(value="/transfer-form", produces="application/json; charset=UTF-8")
+    @ResponseBody
+    public ResponseResult transferForm(@RequestParam String payAccount, @RequestParam String payMoney,
+                                       @RequestParam String recvName, @RequestParam String recvAccount, HttpSession session){
+        double money = Double.valueOf(payMoney);
+        Account currentAccount = (Account)session.getAttribute("loginAccount");
+        if(payAccount.equals(currentAccount.getCardid()) == false){
+            return ResponseResult.createErrMessage("付款账户不是您所登陆的当前账户");
+        }
+        if(money > currentAccount.getBalance()){
+            return ResponseResult.createErrMessage("您的余额不足");
+        }
+        Account recvAccountInfo = accountService.findAccountByCardId(recvAccount);
+        if(recvAccountInfo == null || recvAccountInfo.getName().equals(recvName) == false){
+            return ResponseResult.createErrMessage("收款账户信息不正确，请核实");
+        }
+        TransferRecord record = new TransferRecord();
+        record.setPayAccount(currentAccount);
+        record.setRecvAccount(recvAccountInfo);
+        record.setTransferDate(new Date());
+        record.setTransferMoney(money);
+        record.setTransferNumber("33333333");
+        session.setAttribute("transferRecord", record);
+        return ResponseResult.createOk(null);
+    }
+    @RequestMapping("/transfer-confirm")
+    public String transferConfirm(HttpSession session){
+        return "transferconfirm";
+    }
+
+    @RequestMapping("/transfer")
+    public String transfer(HttpSession session){
+        TransferRecord record = (TransferRecord)session.getAttribute("transferRecord");
+        if(record == null){
+            return null;
+        }
+        Account payAccount = record.getPayAccount();
+        Account recvAccount = record.getRecvAccount();
+        double money = record.getTransferMoney();
+        double payBalance = payAccount.getBalance();
+        payAccount.setBalance(payBalance-money);
+        double recvBalance = recvAccount.getBalance();
+        recvAccount.setBalance(recvBalance + money);
+        accountService.updateBalance(payBalance-money, payAccount.getName(), payAccount.getCardid());
+        accountService.updateBalance(recvBalance+money, recvAccount.getName(), recvAccount.getCardid());
+        session.setAttribute("transferRecord", null);
+        return "transferResult";
+    }
 }

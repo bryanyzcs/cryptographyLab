@@ -21,10 +21,10 @@ $(function () {
     });
 
     /*提示密码输入信息格式*/
-    // repwdInput.on({
-    //     "focus": function() {
-    //         $(input_tip.get(2)).html(accountInput.attr("default"));},
-    //     "blur": function () {
-    //         $(input_tip.get(2)).html("");}
-    // });
+    repwdInput.on({
+        "focus": function() {
+            $(input_tip.get(2)).html(accountInput.attr("default"));},
+        "blur": function () {
+            $(input_tip.get(2)).html("");}
+    });
 });

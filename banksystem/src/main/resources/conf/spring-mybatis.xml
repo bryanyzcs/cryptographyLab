@@ -51,9 +51,9 @@
 
     <context:component-scan base-package="banksystem.*" />
 
-    <bean id="UserMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <bean id="AccountMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
-        <property name="mapperInterface" value="banksystem.mapper.UserMapper"></property>
+        <property name="mapperInterface" value="banksystem.mapper.AccountMapper"></property>
     </bean>
 
 </beans>
