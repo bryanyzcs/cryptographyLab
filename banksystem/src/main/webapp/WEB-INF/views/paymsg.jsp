@@ -5,6 +5,9 @@
 <html>
 <head>
     <title>用户登录</title>
+    <link type="text/css" href="//g.alicdn.com/sd/ncpc/nc.css?t=2019111921" rel="stylesheet" />
+    <link rel="stylesheet" href="https://g.alicdn.com/vip/login/0.5.65/css/new-loginV2.css?t=20151220" />
+    <link rel="stylesheet" href="https://g.alicdn.com/vip/login/0.5.65/css/page.css?t=20151220" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/boc2013_columns.css" type="text/css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/boc2013_common.css" type="text/css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/boc2013_reset.css" type="text/css" />
@@ -62,6 +65,10 @@
             <br/>
             <div class="reg-form">
                 <form action="" id="transfer-form" onsubmit="return false">
+                    <div id="J_Message" style="display:none;" class="login-msg error">
+                        <i class="iconfont">&#xe604;</i>
+                        <p class="error"></p>
+                    </div>
                     <div class="form-item">
                         <label>付款卡号</label>
                         <input type="text" id="form-payAccount" name="payAccount" class="myfield" placeholder="付款方银行卡号">
@@ -71,7 +78,7 @@
                     </div>
                     <div class="form-item">
                         <label>付款人姓名</label>
-                        <input type="text" step="0.01" id="form-money" name="payName" class="myfield">
+                        <input type="text"  id="form-name" name="payName" class="myfield">
                     </div>
                     <div class="input-tip">
                         <span></span>

@@ -44,7 +44,7 @@ public class AccountController {
     public String deposit(HttpSession session){
         if(ifmodify(session))
             return "redirect:login";
-       return "account";
+       return "deposit";
     }
 
     @RequestMapping(params="method=transfer")

@@ -8,10 +8,7 @@ import banksystem.pojo.OrderPayRecord;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -43,16 +40,47 @@ public class PayController {
         return "paymsg";
         //订单信息， 订单号，商品总价
     }
-    @RequestMapping(value = "/pay",params="method=paycommit")
-    public ResponseResult paycommit(Model model, String payAccountNum, String payName, String passwd, HttpSession session) {
 
-        Account payAccount = accountService.findAccountByCardId(payAccountNum);
+    class User{
+        String payAccountNum;
+        String payName;
+        String passwd;
+
+        public String getPayAccountNum() {
+            return payAccountNum;
+        }
+
+        public void setPayName(String payName) {
+            this.payName = payName;
+        }
+
+        public String getPasswd() {
+                return passwd;
+        }
+
+        public void setPasswd(String passwd) {
+            this.passwd = passwd;
+        }
+
+        public String getPayName() {
+            return payName;
+        }
+
+        public void setPayAccountNum(String payAccountNum) {
+            this.payAccountNum = payAccountNum;
+        }
+    }
+    @RequestMapping(value = "/pay",params="method=paycommit", produces = "application/json; charset=UTF-8")
+    @ResponseBody
+    public ResponseResult paycommit(Model model, HttpServletRequest request, HttpSession session) {
+
+        Account payAccount = accountService.findAccountByCardId(request.getParameter("payAccount"));
         if(payAccount == null)
             return ResponseResult.createErrMessage("卡号不存在");
-        else if (!payAccount.getName().equals(payName)){
+        else if (!payAccount.getName().equals(request.getParameter("payName"))){
             return ResponseResult.createErrMessage("卡号和姓名不匹配");
         }
-        else if(!payAccount.getPasswd().equals(passwd))
+        else if(!payAccount.getPasswd().equals(request.getParameter("passwd")))
             return ResponseResult.createErrMessage("密码错误");
         OrderPayRecord  orderPayRecord = (OrderPayRecord) session.getAttribute("orderRecord");
         orderPayRecord.setPayAccount(payAccount);

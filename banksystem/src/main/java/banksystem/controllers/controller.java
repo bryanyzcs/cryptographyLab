@@ -59,6 +59,31 @@ public class controller {
         return "index";
     }
 
+    @RequestMapping(value="/deposit-form", produces="application/json; charset=UTF-8")
+    @ResponseBody
+    public ResponseResult depositForm(@RequestParam String savePasswd,@RequestParam String saveAccount, @RequestParam String saveMoney, HttpSession session){
+        Account currentAccount = (Account)session.getAttribute("loginAccount");
+        if(saveAccount.equals(currentAccount.getCardid()) == false){
+            return ResponseResult.createErrMessage("存储账户不是您所登陆的当前账户");
+        }
+        if(!savePasswd.equals(currentAccount.getPasswd())){
+            return ResponseResult.createErrMessage("wrong passwd!");
+        }
+        double money = Double.valueOf(saveMoney);
+        double balance=currentAccount.getBalance();
+        currentAccount.setBalance(balance+money);
+        accountService.updateBalance(currentAccount.getBalance(),currentAccount.getName(),saveAccount);
+        return ResponseResult.createOk(null);
+    }
+//
+    @RequestMapping("/deposit")
+    public String deposit(Model model, HttpSession session, HttpServletRequest request){
+        session.setAttribute("transferRecord", null);
+        model.addAttribute("msg", "return home");
+        model.addAttribute("returnURL", "/banksystem/account?method=index");
+        return "transferResult";
+    }
+
     @RequestMapping(value="/transfer-form", produces="application/json; charset=UTF-8")
     @ResponseBody
     public ResponseResult transferForm(@RequestParam String payPasswd,@RequestParam String payAccount, @RequestParam String payMoney,

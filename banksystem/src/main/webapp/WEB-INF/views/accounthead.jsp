@@ -35,7 +35,7 @@ top--%>
         <ul class="menu" id='BOC_NAVIGATOR_UL'>
             <li class="li_2013 current"><a href="${pageContext.request.contextPath}/account?method=index" class="current">首页</a></li>
             <li class="li_2013"><a name='PL_MENU_NAME' href="${pageContext.request.contextPath}/account?method=accountinfo">账户</a></li>
-            <li class="li_2013"><a name='PL_MENU_NAME' href=".${pageContext.request.contextPath}/account?method=deposit">存款</a></li>
+            <li class="li_2013"><a name='PL_MENU_NAME' href="${pageContext.request.contextPath}/account?method=deposit">存款</a></li>
             <li class="li_2013"><a name='PL_MENU_NAME' href="${pageContext.request.contextPath}/account?method=transfer">转账</a></li>
             <li class="li_2013"><a name='PL_MENU_NAME' href="${pageContext.request.contextPath}/account?method=detail">明细</a></li>
         </ul>

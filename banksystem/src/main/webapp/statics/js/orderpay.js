@@ -1,8 +1,10 @@
 function orderPay(){
     var payAccount= $("#form-payAccount");
-    var payName = $("#form-money");
+    var payName = $("#form-name");
     var payPasswd = $("#form-passwd");
     var input_tip = $('div.input-tip span');
+    var err_tip = $('p.error');
+    var mess_displ = $('#J_Message');
     var flag = 1;
 
     if(payAccount.val().length == 0){
@@ -13,7 +15,7 @@ function orderPay(){
         $(input_tip.get(0)).html("");
     }
     if(payName.val().length == 0){
-        $(input_tip.get(1)).html("<i class='i-error'></i>请填写收款账户信息");
+        $(input_tip.get(1)).html("<i class='i-error'></i>请填写付款账户信息");
         flag = 0;
     }
     else{
@@ -36,7 +38,7 @@ function orderPay(){
         data: $("#transfer-form").serialize(),
         success: function(result){
             if(result.code == 200){
-                window.location.href = "/banksystem/method=showretur";
+                window.location.href = "/banksystem/pay?method=showreturn";
             }
             else {
                 mess_displ.attr("style", "display: block");

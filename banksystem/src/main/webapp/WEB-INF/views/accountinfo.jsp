@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>用户登录</title>
+    <title>用户信息</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/boc2013_index.css" type="text/css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/boc2013_common.css" type="text/css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/boc2013_reset.css" type="text/css" />
