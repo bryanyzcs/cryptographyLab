@@ -3,8 +3,12 @@ function transfer(){
     var money = $("#form-money");
     var recvName = $("#form-recvName");
     var recvAccount = $("#form-recvAccount");
+    var payPasswd = $("#form-passwd");
     var input_tip = $('div.input-tip span');
+    var err_tip = $('p.error');
+    var mess_displ = $('#J_Message');
     var flag = 1;
+
 
     if(payAccount.val().length == 0){
         $(input_tip.get(0)).html("<i class='i-error'></i>请填写账号信息");
@@ -25,19 +29,27 @@ function transfer(){
         $(input_tip.get(1)).html("");
     }
 
+    if(payPasswd.val().length == 0){
+        $(input_tip.get(2)).html("<i class='i-error'></i>请填写密码");
+        flag = 0;
+    }
+    else{
+        $(input_tip.get(2)).html("");
+    }
+
     if(recvName.val().length == 0){
         $(input_tip.get(3)).html("<i class='i-error'></i>请填写收款账户信息");
         flag = 0;
     }
     else{
-        $(input_tip.get(0)).html("");
+        $(input_tip.get(3)).html("");
     }
     if(recvAccount.val().length == 0){
         $(input_tip.get(4)).html("<i class='i-error'></i>请填写收款方卡号信息");
         flag = 0;
     }
     else{
-        $(input_tip.get(0)).html("");
+        $(input_tip.get(4)).html("");
     }
     if(flag == 0){
         return false;
@@ -52,7 +64,9 @@ function transfer(){
                 window.location.href = "/banksystem/transfer-confirm";
             }
             else {
-                $(input_tip.get(0)).html("<i class='i-error'></i>" + result.message);
+                mess_displ.attr("style", "display: block");
+                err_tip.text(result.message);
+
             }
 
         },

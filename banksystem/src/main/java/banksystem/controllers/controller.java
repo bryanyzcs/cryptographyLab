@@ -61,7 +61,7 @@ public class controller {
 
     @RequestMapping(value="/transfer-form", produces="application/json; charset=UTF-8")
     @ResponseBody
-    public ResponseResult transferForm(@RequestParam String payAccount, @RequestParam String payMoney,
+    public ResponseResult transferForm(@RequestParam String payPasswd,@RequestParam String payAccount, @RequestParam String payMoney,
                                        @RequestParam String recvName, @RequestParam String recvAccount, HttpSession session){
         double money = Double.valueOf(payMoney);
         Account currentAccount = (Account)session.getAttribute("loginAccount");
@@ -70,6 +70,9 @@ public class controller {
         }
         if(money > currentAccount.getBalance()){
             return ResponseResult.createErrMessage("您的余额不足");
+        }
+        if(!payPasswd.equals(currentAccount.getPasswd())){
+            return ResponseResult.createErrMessage("wrong passwd!");
         }
         Account recvAccountInfo = accountService.findAccountByCardId(recvAccount);
         if(recvAccountInfo == null || recvAccountInfo.getName().equals(recvName) == false){
@@ -86,11 +89,12 @@ public class controller {
     }
     @RequestMapping("/transfer-confirm")
     public String transferConfirm(HttpSession session){
+
         return "transferconfirm";
     }
 
     @RequestMapping("/transfer")
-    public String transfer(HttpSession session){
+    public String transfer(Model model, HttpSession session, HttpServletRequest request){
         TransferRecord record = (TransferRecord)session.getAttribute("transferRecord");
         if(record == null){
             return null;
@@ -105,6 +109,8 @@ public class controller {
         accountService.updateBalance(payBalance-money, payAccount.getName(), payAccount.getCardid());
         accountService.updateBalance(recvBalance+money, recvAccount.getName(), recvAccount.getCardid());
         session.setAttribute("transferRecord", null);
+        model.addAttribute("msg", "返回首页");
+        model.addAttribute("returnURL", "/banksystem/account?method=index");
         return "transferResult";
     }
 }

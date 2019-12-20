@@ -17,7 +17,7 @@
 
     <p class="text">成功</p>
     <div class="my-btn-box">
-        <a class="layui-btn layui-btn-small" href="${pageContext.request.contextPath}/account?method=index">返回首页</a>
+        <a class="layui-btn layui-btn-small" href="${returnURL}">${msg}</a>
       <%--  <a class="layui-btn layui-btn-danger layui-btn-small " href="javascript:;">返回上页</a>--%>
     </div>
 </div>

@@ -1,6 +1,6 @@
-import banksystem.dao.UserDao;
-import banksystem.mapper.UserMapper;
-import banksystem.pojo.User;
+import banksystem.dao.AccountDao;
+import banksystem.mapper.AccountMapper;
+import banksystem.pojo.Account;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -26,8 +26,8 @@ public class UserDaoTest {
         SqlSession session = factory.openSession(true);
         try {
             //通过MyBatis实现接口UserDAO，返回实例
-            UserMapper userDao = session.getMapper(UserMapper.class);
-            User user = userDao.selectUseByName("zhang");
+            AccountMapper userDao = session.getMapper(AccountMapper.class);
+            Account user = userDao.selectAccountByName("zhang");
             System.out.println(user);
         } finally {
             session.close();
@@ -46,8 +46,8 @@ public class UserDaoTest {
         SqlSession session = factory.openSession(true);
         try {
             //通过MyBatis实现接口UserDAO，返回实例
-            UserMapper userMapper = session.getMapper(UserMapper.class);
-            User user = userMapper.selectUseByName("zhang");
+            AccountMapper userMapper = session.getMapper(AccountMapper.class);
+            Account user = userMapper.selectAccountByName("zhang");
             logger.info(user);
             System.out.println(user);
         } finally {
