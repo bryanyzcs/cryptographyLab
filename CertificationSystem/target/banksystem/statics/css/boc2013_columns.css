@@ -1,0 +1,505 @@
+@charset "utf-8";
+ol, ul { list-style: none; }
+/*common*/
+.content{float:left;width:73.3%;display:inline;margin-right:2%;}
+.slider{float:right;width:24.6%;display:inline;}
+.list li,
+.list p,
+.serve_ft p a,
+.topic_hot a,
+.bk_card .fr a,
+.newList dd,
+.box8 .jg_list li em,
+.list_tg li{background:url(boc2013_dot_icon.png) no-repeat;padding-left:14px;}
+.list li,.list p{background-position:0 -72px;}
+.list_tg li {background-position: 0 -229px;}
+.info,
+.loginBox li,
+.phone_bk,
+.tel{background:url(boc2013_slider.png) no-repeat;}
+
+.topic_hot .title,
+.demo,
+.load li
+{background:url(boc2013_icon.png) no-repeat;}
+
+/*============================scroll滑动公用===================*/
+.scroller{width:607px;position:relative;height:106px;overflow:hidden;}
+.bx_wrap{margin-left:29px;}
+.bx_wrap a.prev,.bx_wrap a.next{width:13px;height:42px;outline-style:none;outline-width:0;position:absolute;top:6px;background:url(boc2013_pre_next.png) no-repeat;}
+.bx_wrap a.prev{left:0;background-position:0 0;}
+.bx_wrap a.next{right:0;background-position:-13px 0;}
+.bx_wrap a.prev:hover{background-position:0 -43px;}
+.bx_wrap a.next:hover{background-position:-13px -43px;}
+#bx_container li{float:left;width:49px;margin:0;height:106px;}
+#bx_container li span{display:block;white-space:nowrap;text-align:center;line-height:16px;margin-top:6px;font-family:"微软雅黑";}
+/*焦点图公用*/
+#loop{width:300px; height:224px; overflow:hidden; float:right; padding:8px 0 0 0;}
+#loop ul{width:300px; height:188px; overflow:hidden; }
+#loop .loop_btn{ text-align:center; margin-top:20px;}
+#loop .loop_btn span{display:inline-block; width:10px; height:9px; font-size:0; line-height:0; background:url(boc2013_loop.png) no-repeat -22px 0; margin:0 6px 0 0px; cursor:pointer;}
+#loop .loop_btn span.active{background-position:0px 0px;}
+
+/*==========================频道页==================================*/
+/*===================频道页-公司金融===============================*/
+.loop{border:1px solid #dadada;border-radius:4px;width:99.7%;height:246px;overflow:hidden;}
+.loop1{border:1px solid #dadada;border-radius:4px;width:99.7%;height:246px;overflow:hidden;}
+.loop1 #loop{width:100%;height:202px;padding:0;position:relative;}
+.loop1 #loop ul{width:100%;height:202px;z-index:0;}
+.loop1 #loop .loop_btn{position:absolute;margin:0;z-index:1;bottom:17px;right:20px;}
+.loop1 #loop .loop_btn span{ background-position:-22px -11px;}
+.loop1 #loop .loop_btn span.active{background-position:0px -11px;}
+.hot_new{padding:0 20px;}
+.hot_new a{margin-right:20px;display:inline-block;line-height:43px;}
+.area_box,.area_box6 .tab_content{background:url(boc2013_b_bg.jpg) no-repeat 0 bottom;/*margin-bottom:40px;*/}
+.title{line-height:38px;font:20px "微软雅黑";color:#000;}
+.title2{padding-left:20px;height:38px;}
+.area_box1{padding:50px 0 35px 20px;}
+.area_box2 dl{border:1px solid #edd2a5;border-radius:5px;padding:20px;margin:12px 0 0 20px;width:40%;float:left;display:inline;height:108px;overflow:hidden;}
+.area_box2 dl dt{color:#000;font:16px "微软雅黑";background:url(boc2013_dot_linex.gif) repeat-x 0 bottom;padding-bottom:15px;margin-bottom:13px;}
+.area_box2 dl dt a,.area_box2 dl dt a:hover{color:#000;}
+.area_box2 dl dd{float:left;width:45%;background:url(boc2013_dot_icon.png) no-repeat 0 -76px;padding-left:14px;}
+.area_box2 dl.first dd{width:100%;background:none;padding:0;}
+.common{width:208px;margin-right:30px;float:left;display:inline;}
+.common img{border:1px solid #e0e0e0;border-radius:3px; margin-bottom:6px;width:203px;height:89px;overflow:hidden;}
+.common a span{color:#000;font:19px "微软雅黑";cursor:pointer;background:url(boc2013_arrow.png) no-repeat right -60px;padding-right:15px;margin-bottom:16px;display:inline-block;}
+.common .list_b li{float:left;width:50%;}
+.common .last li{float:none;width:100%;}
+.common p{margin-bottom:12px;color:#898989;}
+.serve .area_box{padding:18px 0 40px;border-top:1px solid #dadada;margin:0;}
+.box{border:1px solid #dadada;border-radius:5px;padding:7px 19px 23px;margin-bottom:12px;z-index:0;}
+.box .title{line-height:43px;text-align:left;}
+.loginBox li{height:35px;margin:10px 0;}
+.loginBox li a{display:block;line-height:35px;padding-left:20px;color:#000;font-family:"微软雅黑";}
+.loginBox li a:hover{color:#000;}
+.loginBox li.last{margin:0;}
+.info{width:242px;height:58px;line-height:58px;margin-bottom:12px;}
+.info a{display:block;padding-left:69px;color:#000;font-family:"微软雅黑";font-size:14px;}
+.info a:hover{color:#000;}
+.info_1{background-position:0 -287px;}
+.info_2{background-position:0 -229px;position:relative;z-index:1;}
+.info_2 .info2_menu{position:absolute;top:58px;z-index:1;background:#fff;width:240px;border:1px solid #dadada;border-width:0px 1px 1px 1px;border-radius:0 0 5px 5px;display:none;margin-top:0px;padding-bottom:20px;padding-top:20px;}
+.info_2 .info2_menu li a{line-height:45px;margin:0 24px;padding:0;display:block;width:192px;color:#000;}
+.info_2 .info2_menu li a:hover{background:url(boc2013_arrow.png) no-repeat right 18px;color:#000;}
+.info_3{background-position:0 -345px;}
+.info_4{background-position:0 -403px;}
+.info_5{background-position:0 -461px;}
+.serve .area_box2{margin-top:40px;}
+
+/*==================================频道页-个人金融=======================================*/
+.area_box3{padding:40px 0 35px 20px;margin:0;/**/}
+.notice_1{border-right:1px solid #dadada;float:left;width:48%;}
+.notice_2{width:48.9%;padding-left:20px;float:right;}
+.tabs{position:relative;}
+.notice_2 .title,.notice_1 .title{padding:0;}
+.tabs .tab_nav{position:absolute;right:0;top:8px;}
+.tabs .tab_nav li{background:none;border-width:0 1px 0 0;margin:0;padding:0;}
+.tabs .tab_nav li a{background:none;padding:0 15px;font-size:14px;}
+.tabs .tab_nav li.selected a{color:#000;}
+.tabs .tab_nav li.last{border:0;}
+.tabs .tab_content{border:0;}
+.more{text-align:right;padding-right:20px;margin-top:24px;color:#d28f1e;clear:both;}
+.more a{color:#d28f1e;}
+.area_box4{overflow:hidden;padding:0 0 35px 20px;margin:40px 0;}
+.area_box4 .list{overflow:hidden;zoom:1;}
+.area_box4 .list li{float:left;width:40%;margin-right:3%;display:inline;}
+.area_box4 .last,.area_box1 .last{margin:0;}
+.area_box4 .last li{float:none;width:100%;display:block;}
+.area_box5 .fl{padding-top:28px;height:156px;overflow:hidden;position:relative;width:245px;padding-right:16px;border-right:1px solid #dadada;}
+.area_box5 .fl ul li{background:none;}
+.left_bt,.right_bt{position:absolute;display:block;width:13px;height:42px;background:url(boc2013_arrow2.jpg) no-repeat;top:85px;cursor:pointer;}
+.left_bt{left:0;}
+.right_bt{right:20px;background-position:-13px 0;}
+.serve .area_box5{padding:20px 20px 30px;}
+.area_box5 .scroll_box{margin:0 auto;position:relative;width:152px;height:139px;overflow:hidden;}
+.area_box5 .scroll_box ul{position:absolute;width:auto;}
+.area_box5 .scroll_box ul li{width:152px;height:139px;float:left;text-align:center;margin:0 10px;}
+.area_box5 .fr .list li{width:46%;float:left;}
+.serve_r_ft{background:url(boc2013_dot_linex.gif) repeat-x 0 top;clear:both;margin-top:23px;padding-top:25px;}
+.serve_r_ft a{width:49%;display:inline-block;text-align:center;}
+.serve_r_ft a span{background:url(boc2013_arrow.png) no-repeat right -26px;padding-right:10px;display:inline-block;color:#cd2e21;}
+.s_tab{width:388px;padding-left:20px;}
+.s_tab .tab_content{position: absolute;top:50px;width:100%;}
+.phone_bk{background-position:-1px -520px;height:76px;padding:0;display:block;}
+.tel{background-position:0 -655px;height:48px;margin-bottom:12px;padding-left:68px;line-height:18px;padding-top:10px;}
+.tel em{font:16px arial;color:#a71e32;font-weight:bold;}
+.online_safe{background-position:0 -597px;}
+#wrapDiv .scroller{width:245px;height:145px;}
+#wrapDiv .bx_wrap{margin-left:35px;}
+#wrapDiv .bx_wrap a.prev,#wrapDiv .bx_wrap a.next{top:26px;}
+
+#wrapDiv #bx_container li{width:151px;margin:0 11px;height:145px;}
+#wrapDiv #bx_container li span{display:block;white-space:nowrap;text-align:center;line-height:16px;}
+
+/*======================================频道页-银行卡=====================================*/
+.bank_tab{position:relative;height:325px;width:100%;margin-top:40px;}
+.bank_tab .title{padding:10px 0 30px 20px;}
+.bank_tab .tab{position:absolute;top:48px;width:100%;}
+.bank_tab .tab_nav{position:absolute;right:20px;top:-48px;top:-47px\9;*top:-48px;height:48px;}
+.bank_tab .tab_content{background:url(boc2013_b_bg.jpg) no-repeat 0 bottom;padding:26px 20px 30px;border-bottom:0;margin-top:1px !important;}
+
+/*scroller*/
+#card1,#card2{width:678px;height:220px;}
+#card1 .bx_wrap,#card2 .bx_wrap{margin-left:50px;}
+#card1 .bx_wrap a.prev,#card1 .bx_wrap a.next,#card2 .bx_wrap a.prev,#card2 .bx_wrap a.next{top:26px;}
+#card1 #bx_container li,#card2 #bx_container li{float:left;width:151px;margin:0 11px;height:220px;text-align:center;}
+#card2 #bx_container li span,#card2 #bx_container li span{display:block;white-space:nowrap;text-align:center;line-height:16px;margin-top:6px;}
+
+.scroll_box{margin:0 auto;position:relative;overflow:hidden;}
+.scroll_box ul{position:absolute;width:auto;}
+.scroll_box ul li{float:left;text-align:center;}
+.pic{margin-bottom:12px;line-height:18px;}
+.sc_demo1 li p em,.sc_demo2 li p em{width:45%; display:inline-block;}
+.bank_tab span{top:56px;}
+.bank_tab .left_bt{left:20px;}
+.bank_tab .list{margin-bottom:10px;overflow:hidden;height:95px;}
+.bank_tab .list p{text-align:left;white-space:nowrap;}
+.card_box{overflow:hidden;}
+.card_box li{width:153px;float:left;margin-right:20px;text-align:center;line-height:20px;}
+.card_box li.last{margin:0;}
+.bank_tab2{margin:40px 0 40px;background:url(boc2013_b_bg.jpg) no-repeat 0 bottom;height:300px;}
+.bank_tab2 .more{padding:0;margin-top:30px;}
+.bank_tab2 .topic .more{+margin:0;}
+.bank_tab2 .tab_content{background:none;}
+.tab_ft{background:url(boc2013_dot_linex.gif) repeat-x 0 top;padding-top:13px;clear:both;position:absolute;bottom:30px;margin:0 20px;width:94%;}
+.tab_ft a{display:inline-block;width:46%;}
+.tab_ft a span{background:url(boc2013_arrow.png) no-repeat right -104px;padding-right:10px;color:#d28f1e;}
+.title .fr{color:#898989;font-size:14px;line-height:38px;}
+.title .fr a{font-weight:normal;color:#898989;}
+.title .fr a:hover{color:#ff6633;}
+.title .fr i{margin:0 14px;}
+.serve2,.serve1{margin-top:36px;}
+.serve1 .area_box li{width:154px;float:left;margin:0 0 20px 20px;text-align:center;line-height:20px;}
+.serve1 .area_box li img{display:block;margin:0 auto;}
+.serve_ft{background:url(boc2013_dot_linex.gif) repeat-x 0 top;padding-top:13px;clear:both;width:94%;margin:0 auto;}
+.serve_ft p a{background-position:0 -153px;color:#d28f1e;display:inline-block;}
+.serve2,.serve1{margin-top:40px;}
+.serve2 dl,.area_box6 dl{float:left;padding:0 34px 0 0;width:180px;margin:12px 0 0 20px;background:url(boc2013_dot_liney.gif) repeat-y right 0;height:auto;display:inline;}
+.serve2 dl dt,.area_box6 dl dt{color:#000;font:16px "微软雅黑";padding-bottom:15px;}
+.serve2 dl dt a,.serve2 dl dt a:hover{color:#000;}
+.serve2 dl dd,.area_box6 dl dd{background:url(boc2013_dot_icon.png) no-repeat 0 -76px;padding-left:14px;}
+.serve2 dl.last{background:none;}
+.attend_us{background-position:0 -70px;width:209px;padding-left:33px;position:relative;font-family:"微软雅黑";font-size:14px;}
+.attend_us a{display:inline-block;width:30px;height:25px;position:absolute;top:17px;}
+.attend_us a.sina{left:52px;z-index:10;}
+.attend_us a.wx{right:38px;}
+.box5{padding-top:30px;}
+.ad1{line-height:30px;background:url(boc2013_dot_linex.gif) repeat-x 0 bottom;padding-bottom:20px;}
+.ad1 img{float:left;margin-right:22px;}
+.box5 .apply_bt{margin:20px 0 13px;}
+.bt_link li{color:#d28f1e;float:left;width:50%;}
+.bt_link_w li{width:100%;text-align:right;}
+.bt_link li a{background:url(boc2013_arrow.png) no-repeat right -104px;padding-right:10px;color:#d28f1e;}
+.apply_bt{width:160px;padding-left:39px;margin-top:61px;height:35px;display:inline-block;background:#dbbc7f;border-radius:2px;color:#fff;line-height:35px;}
+.apply_bt span{background:url(boc2013_card_online.gif) no-repeat;padding-left:39px;color:#fff;}
+.box6{padding-bottom:7px;}
+.box6 ul li{background:url(boc2013_dot_linex.gif) repeat-x 0 bottom;padding:10px 0 10px 10px;overflow:hidden;clear:both;}
+.box6 ul li a{display:block;height:54px;line-height:54px;width:100%;overflow:hidden;}
+.box6 ul li a span{display:block;float:left;}
+.box6 ul li img{float:right;}
+.box6 ul li.last{background:none;padding-bottom:0;}
+.info_ATM{background-position:0 -128px;position:relative;z-index:10;}
+.ATM_menu{background:#fff;border:1px solid #dadada;border-width:0 1px 1px 1px;border-radius:0 0 5px 5px;padding:20px 10px;overflow:hidden;display:none;margin-top:0px;}
+.ATM_menu li a{padding:0;line-height:26px;}
+.ATM_key{width:198px;height:25px;margin-bottom:10px;border:1px solid #dadada;border-radius:2px;padding:4px 10px;}
+.ATM_menu select{width:168px;height:33px;border:1px solid #dadada;border-radius:2px;float:left;padding:7px; }
+.ATM_bt{background:url(boc2013_search2.gif) no-repeat;float:right;width:40px;height:35px;border:0;cursor:pointer;}
+.box2 ul{overflow:hidden;}
+.box2 ul li{float:left;width:85px;}
+.box4{padding:0;overflow:hidden;}
+/*================================频道页-金融市场================================*/
+.area_box6 .tab_nav li a{padding:10px 21px;}
+.area_box6 .tab_content{border-bottom:0;padding:20px 0 35px;}
+.area_box6 dl{width:47%;padding:0;float:left;}
+.area_box6 dl.last{background:none;}
+.area_box6 .area_box{margin-bottom:40px;}
+.area_box6 dl .more{background:none;}
+.serve3 .area_box{padding:20px 20px 50px;}
+.serve3 .fl{width:184px;padding:12px 16px 0 14px;border:0;background:url(boc2013_dot_liney.gif) repeat-y right 0;height:auto;}
+.serve3 .s_tab,.serve4 .s_tab{padding-left:20px;width:444px;}
+.serve3 .s_tab .tab_content{position: absolute;top:50px;width:100%;}
+.serve3 .list li{width:46.9%;float:left;}
+.serve3 .more{margin-top:15px;}
+.s_table{width:100%;text-align:center;border-bottom:1px solid #eee;margin-bottom:10px;margin-top:10px;}
+.s_table table{border:0;}
+.s_table tr td{border:0;}
+.s_table th{text-align:center;border:1px solid #eee;border-width:1px 0 1px 0;}
+.s_table tr{height:30px;line-height:30px;}
+.s_table tr.odd{background:#f8f8f8;}
+
+/*===============================频道页-电子银行===================================*/
+.bk_card{height:325px;}
+.bk_card .tab_nav li a{padding:13px 14px;}
+.bk_card .tab_content{border-bottom:0;padding:20px;}
+.bk_card .fl{width:374px;padding-right:65px;}
+.bk_card .fr{width:233px;height:197px;padding-left:6px;}
+.bk_card .fr a{color:#d28f1e;display:inline-block;margin-bottom:20px;background-position:0 -150px;}
+.topic_hot{float:left;width:131px;}
+.topic_hot .title{background-position:0 -52px;margin:11px 0 24px 0;padding-left:29px;}
+.topic_hot a{color:#e44919;display:inline-block;}
+.topic ul{border-left:1px solid #dadada;padding-left:30px;float:left;width:212px;margin-bottom:24px;}
+.topic .list li{float:left;width:43.4%;}
+.serve4 .area_box{padding:20px 20px 30px;}
+.serve4 .fl{width:184px;padding:0 16px 0 0;border-right:1px solid #dadada;height:auto;}
+.serve4 .fl h3{font:16px/40px "微软雅黑";color:#000;}
+.serve4 .fl ul li{background:url(boc2013_dot_linex.gif) repeat-x 0 bottom;height:61px;}
+.serve4 .fl ul li.last{background:none;}
+.safe_lk{overflow:hidden;}
+.safe_lk a{display:block;}
+.safe_lk img{display:inline;float:left;}
+.safe_lk span{float:left;margin-left:27px;line-height:60px;}
+.hover_menu{border:1px solid #dadada;border-width:0 1px 1px 1px;border-radius:0 0 5px 5px;padding:20px;background:#fff;display:none;margin-top:0px;}
+.hover_menu li a{display:block;margin-bottom:30px;color:#000;padding-left:6px;}
+.hover_menu li a:hover{background:url(boc2013_arrow.png) no-repeat right 8px;color:#000;}
+.hover_menu li.last a{margin:0;}
+.demo{background-position:0 -87px;padding-left:29px;display:block;color:#d28f1e;clear:both;}
+.demo:hover{color:#d28f1e;}
+.load{overflow:hidden;padding-right:0;}
+.load li{background-position:0 -124px;padding-left:27px;white-space:nowrap;display:inline-block;}
+.topic{margin-top:20px;}
+/*=================频道页-投资者关系===================*/
+.today a{width:auto;}
+.invest_t{padding:40px 0px 6px 0;}
+.invest_t .title{float:left;}
+.invest_t div{position:relative;width:306px;height:29px;float:right;}
+.invest_t div .search_bar{width:173px;height:27px;margin:0 0 0 10px;}
+.invest_t .search_ipt{width:140px;padding-left:5px;}
+.invest_t .search_btn{cursor:pointer;}
+.invest_t select{width:116px;height:29px;padding:4px;color:#898989;}
+.gs_area{border-top:1px solid #dadada;padding:20px;}
+.gs_area .fl{width:219px;display:inline;margin-right:20px;}
+.gs_area h3{font-family:"微软雅黑";font-size:16px;font-weight:400;color:#000;margin-bottom:20px;}
+.gs_area .fr{width:438px;}
+.gs_area .more{margin-bottom:20px;padding:0;}
+.gs_c{clear:both;background:url(boc2013_dot_linex.gif) repeat-x;padding-top:20px;width:100%;}
+.gs_area2{margin-top:40px;}
+.gs_area2 img{float:left;width:199px;margin-right:20px;display:inline;}
+.gs_area2 ul{width:438px;background:url(boc2013_dot_liney.gif) repeat-y left 0;padding-left:20px;float:left;height:122px;}
+.mb{margin:0;}
+.co_link{padding:13px 0;background:url(boc2013_dot_linex.gif) repeat-x 0 bottom;}
+.co_link a{color:#d28f1e;display:inline-block;width:45%;}
+.co_link a em{background:url(boc2013_arrow.png) no-repeat right -105px;padding-right:17px;}
+.co_link2{margin-top:20px;}
+.co_link2 span{color:#000;display:inline-block;}
+.co_link2 a{color:#cd2e21;}
+.co_bg{padding:19px 0 14px 10px;background:url(boc2013_dot_linex.gif) repeat-x 0 bottom;margin-bottom:14px;}
+.co_bg a{overflow:hidden;display:block;}
+.co_bg img{float:left;}
+.co_bg span{display:inline-block;float:left;margin-left:29px;}
+.co_bg .list{clear:both;}
+.co_bg span.first{margin-top:12px;}
+/*=================频道页-关于中行=======================*/
+.graphic .area_box,.history .area_box{padding:25px 0 30px 20px;position:relative;}
+.graphic .image-text img,.history .image-text img{float:left;display:inline;border:1px solid #dadada;margin:5px 22px 29px 0;}
+.graphic .image-text,.history .image-text{float:left;padding-right:20px;background:url(boc2013_dot_liney.gif) repeat-y right 0;width:59%;}
+.graphic .list,.history .list{float:right;padding-left:20px;width:35.2%;}
+.graphic .list li{float:left;width:44%; white-space:nowrap; height:26px; overflow:hidden;}
+.graphic .more,.history .more{position:absolute;bottom:30px;right:0px;}
+.history,.graphic,.area_box6{margin:40px 0;}
+.serve5 .area_box{padding:25px 20px 36px;position:relative;}
+.serve5 .scroller{height:186px;width:677px;} 
+.serve5 .bx_wrap{margin-left:22px;}
+.serve5 .bx_wrap a.prev,.serve5 .bx_wrap a.next{width:13px;height:42px;outline-style:none;outline-width:0;position:absolute;top:39px;background:url(boc2013_pre_next.png) no-repeat;}
+.serve5 .bx_wrap a.prev{left:0;background-position:0 0;}
+.serve5 .bx_wrap a.next{right:0;background-position:-13px 0;}
+.serve5 .bx_wrap a.prev:hover{background-position:0 -43px;}
+.serve5 .bx_wrap a.next:hover{background-position:-13px -43px;}
+
+.serve5 #bx_container li{float:left;width:178px;margin:0 0 0 10px;height:186px;}
+.serve5 #bx_container li span{display:block;white-space:nowrap;text-align:center;line-height:16px;margin-top:6px;}
+.serve5 #bx_container li a{display:block;}
+.serve5 .more,.box .more{padding:0;}
+.serve6{margin-top:40px;}
+.serve6 .scroller{height:155px;width:677px;} 
+.serve6 .bx_wrap a.prev,.serve6 .bx_wrap a.next{top:26px;}
+.serve6 #bx_container li{float:left;width:151px;margin:0 0 0 10px;height:155px;}
+
+.box7 .scroller{height:121px;width:202px;margin-top:20px;} 
+.box7 .bx_wrap{margin-left:22px;}
+.box7 .bx_wrap a.prev,.box7 .bx_wrap a.next{width:13px;height:42px;outline-style:none;outline-width:0;position:absolute;top:38px;background:url(boc2013_arrow2.jpg) no-repeat;}
+.box7 .bx_wrap a.prev{left:0;background-position:0 0;}
+.box7 .bx_wrap a.next{right:0;background-position:-13px 0;}
+.box7 #bx_container li{float:left;width:159px;margin:0;height:121px;}
+.box7 #bx_container li span{display:block;white-space:nowrap;text-align:center;line-height:30px;margin-top:0;height:30px;background:#f96c1e;color:#fff;}
+.box7 #bx_container li a{display:block;}
+.box8 .jg_list li{background:url(boc2013_dot_linex.gif) repeat-x 0 bottom;padding:12px 0;margin:0;height:auto;line-height:20px;}
+.box8 .jg_list li span{display:block;padding-left:14px;line-height:20px;}
+.box8 .jg_list li em{display:block;background-position:0 -80px;line-height:20px;}
+.box8 .overseas{margin-top:20px;margin-bottom:0;}
+.loginBox .jg_list li a{background:none;padding:0;font:12px "宋体";color:#535353;}
+.loginBox .jg_list li a:hover{color:#ff6633;}
+
+/*标题加链接*/
+.title a,
+.picBox h3 a,
+.newList dt a,
+.area_box6 dl dt a,
+.gs_area h3 a{color:#000000;}
+.title a:hover,
+.picBox h3 a:hover,
+.newList dt a:hover,
+.area_box6 dl dt a:hover,
+.gs_area h3 a:hover{color:#000000;}
+
+/*搜索框样式*/
+.search_ipt{color:#535353;}
+.ipt_focus { color: #000000; }
+
+/* Elastislide Style 银行卡1*/
+.es-carousel-wrapper3{
+	background: #fff;
+	padding:0px 55px;
+	position:relative;
+	width:566px;
+	height:220px;
+
+}
+.es-carousel_o3{
+	overflow:hidden;
+	width:566px;
+	}
+.es-carousel3{
+	overflow:hidden;
+	background:#fff;
+	width:606px;
+}
+.es-carousel3 ul span{ display:block;font: 12px "微软雅黑";text-align:center; width:151px; margin:6px 0 12px 0; line-height:16px;}
+.es-carousel3 ul p{text-align:center; width:151px;}
+.es-carousel3 ul{
+	display:none;
+}
+.es-carousel3 ul li{
+	height:100%;
+	float:left;
+	display:block;
+}
+.es-carousel3 ul li a{
+	display:block;
+}
+.es-carousel3 ul li a img{
+	display:block;
+	border:none;
+}
+
+.es-nav a{
+	position:absolute;
+	top:5%;
+	left:0px;
+    background: url(boc2013_pre_next1.png) no-repeat 0 -1px;
+	width:13px;
+	height:42px;
+	text-indent:-9000px;
+	cursor:pointer;
+}
+.es-nav a.es-nav-next{
+	right:1px;
+	left:auto;
+	background-position:-13px -1px;
+}
+.es-nav a.es-nav-prev-c{
+	opacity:1.0;
+	filter:alpha(opacity=100); 
+}
+.es-nav a:hover{background: url(boc2013_pre_next1.png) no-repeat 0 -42px;}
+.es-nav a.es-nav-next:hover{background-position:-13px -42px;}
+#carouse3 .es-nav a,#carouse4 .es-nav a{top:14%;}
+#carouse3 .es-nav a.es-nav-next,#carouse4 .es-nav a.es-nav-next{
+	right:0px;
+}
+/*4567987 关于中行1*/
+.es-carousel-wrapper5{
+	background: #fff;
+	padding:0px 30px;
+	position:relative;
+	width:612px;
+	height:186px;
+
+}
+.es-carousel_o5{
+	overflow:hidden;
+	width:612px;
+	}
+.es-carousel5{
+	overflow:hidden;
+	background:#fff;
+	width:651px;
+}
+.es-carousel5 ul span{ display:block;font: 12px "微软雅黑";text-align:center; width:151px; margin:6px 0 0 0; line-height:16px;}
+.es-carousel5 ul{
+	display:none;
+}
+.es-carousel5 ul li{
+	height:100%;
+	float:left;
+	display:block;
+}
+.es-carousel5 ul li a{
+	display:block;
+}
+.es-carousel5 ul li a img{
+	display:block;
+	border:none;
+}
+#carouse5 .es-nav a,#carouse6 .es-nav a{top:18%;}
+/*4567987 关于中行2*/
+.es-carousel-wrapper6{
+	background: #fff;
+	padding:0px 32px;
+	position:relative;
+	width:603px;
+	height:155px;
+
+}
+.es-carousel_o6{
+	overflow:hidden;
+	width:603px;
+	}
+.es-carousel6{
+	overflow:hidden;
+	background:#fff;
+	width:678px;
+}
+.es-carousel6 ul span{ display:block;font: 12px "微软雅黑";text-align:center; width:151px; margin:6px 0 0 0; line-height:16px;}
+.es-carousel6 ul{
+	display:none;
+}
+.es-carousel6 ul li{
+	height:100%;
+	float:left;
+	display:block;
+}
+.es-carousel6 ul li a{
+	display:block;
+}
+.es-carousel6 ul li a img{
+	display:block;
+	border:none;
+}
+/*个人金融*/
+#wrapDiv #cb_1{width:170px;position:relative;padding:0 35px;}
+#wrapDiv #cb_1 a{top:15%}
+#cb_1 #bx_container{
+	width:151px;
+	overflow:hidden;
+	margin-left:10px;	
+}
+#wrapDiv #cb_1 ul li{margin:0;}
+
+/*品牌展示*/
+#cb_2{width:202px;}
+#cb_2 #bx_container{width:159px;overflow:hidden;margin-left:20px;	}
+#cb_2 .es-nav a{ top:25%}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+.bank_tab .tab_nav{top:-48px;}
+.bank_tab .tab_content{margin-top:0px !important;}
+}
+@media screen and (max-device-width: 1024px) and (orientation: landscape) {
+.bank_tab .tab_nav{top:-47px;}
+.bank_tab .tab_content{margin-top:0px !important;}
+}
+@media screen and (max-device-width: 768px) and (orientation: portrait) {
+.bank_tab .tab_nav{top:-47px;}
+.bank_tab .tab_content{margin-top:0px !important;}
+}

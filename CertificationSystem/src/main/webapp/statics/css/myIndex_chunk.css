@@ -1,0 +1,56 @@
+.mylogo_tit_lk{
+    background-image:url(http://localhost:8080/Ecommerce/image/icon.png);
+    background-position:0 0;
+    background-repeat:no-repeat;
+    overflow:hidden;
+    display:block;
+    width:190px;
+    height:120px;
+    font-size:0
+}
+
+.mylogin-text {
+    width: 300px;
+    font-size: 14px;
+    line-height: 37px;
+    height: 40px;
+    padding: 11px 8px 11px 50px;
+    border: 1px solid #ddd;
+}
+.myfield{
+    border:1px solid #5bc0de;
+    height: 52px;
+    line-height: 50px;
+    font-size: 16px;
+    padding: 11px 0px 11px;
+    width: 291px;
+}
+table
+{
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+}
+table td, table th
+{
+    border: 1px solid #cad9ea;
+    color: #666;
+    height: 30px;
+}
+table thead th
+{
+    background-color: #CCE8EB;
+    width: 200px;
+}
+table tr:nth-child(odd)
+{
+    background: #fff;
+}
+table tr:nth-child(even) {
+    background: #F5FAFA;
+}
+.myfield:-ms-input-placeholder{color:#ccc}
+.myfield::-webkit-input-placeholder{color:#ccc}
+.myfield:-moz-placeholder{color:#ccc}
+.myfield::-moz-placeholder{color:#ccc}
+.myfield:-ms-input-placeholder{color:#ccc}
