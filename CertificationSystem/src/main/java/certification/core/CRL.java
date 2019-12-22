@@ -20,11 +20,11 @@ public class CRL {
     /**
      * Revoke the certificate with serial number.
      * @param serial -serial number
-     * @param commenName
-     * @return - "Revoke successfully!" if revoke the certificate of serial number, "Fail to revoke!"
+     * @param commonName
+     * @return - "Revoke successfully!" if revoke the certificate of serial number, "Match Error!"
      *          if fail to revoke;
      */
-    public String doRequestCRL(String serial,String commenName){
+    public String doRequestCRL(String serial,String commonName){
         String message;
         Connection conn = null;
         Statement st = null;
@@ -45,14 +45,17 @@ public class CRL {
                 flag = false;
                 fileName = rs.getString("fileName");
                 String nameCompare = rs.getString("commonName");
-                if(!commenName.equals(nameCompare)){
-                    return "Fail to revoke!";
+                if(!commonName.equals(nameCompare)){
+                    return "Match Error!";
                 } else {
-                    doCRL(fileName,commenName,serial);
+                    doCRL(fileName,commonName,serial);
                 }
             }
+            if(flag){
+                return "Certificate Not Found";
+            }
             String delete = "delete from certs where serial='"+serial+"'";
-            if(st.executeUpdate(writeToSql)!=0) {
+            if(st.executeUpdate(delete)!=0) {
                 System.out.println("Delete " + serial + " from cert repository successfully！");
             }
         } catch (SQLException e) {
@@ -68,7 +71,7 @@ public class CRL {
      * @return
      */
     public boolean doCRL(String crtPath,String commonName,String serial) {
-        String crlPath = PathQuery.crlPath+"ca.crl";
+        String crlPath = PathQuery.crlPath;
         File file = new File(crlPath);
         List<String> buffer = new ArrayList<>();
         try {
@@ -83,10 +86,10 @@ public class CRL {
             reader.close();
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append("Revoke: /"+serial+"/"+new Date().toString()+"/"+commonName+"\n");
+            stringBuffer.append("Revoke: Serial Number:"+serial+"  |  Revoke Date:"+new Date().toString()+"  |  Subject:"+commonName);
             buffer.add(stringBuffer.toString());
             for (String writeto : buffer){
-                writer.write(writeto);
+                writer.write(writeto+"\n");
             }
             writer.close();
         } catch (IOException e) {
@@ -121,9 +124,9 @@ public class CRL {
             int rs;
             rs = st.executeUpdate(writeToSql);
             if (rs!=0){
-                System.out.println("插入成功！");
+                System.out.println("Succeed to insert！");
             } else {
-                System.out.println("插入失败！");
+                System.out.println("Fail to insert！");
                 return false;
             }
         } catch (SQLException e) {

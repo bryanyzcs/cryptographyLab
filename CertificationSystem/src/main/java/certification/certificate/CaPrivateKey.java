@@ -1,33 +1,61 @@
 package certification.certificate;
 
+
 public class CaPrivateKey {
-    public static String caPrivateKey = "MIICXgIBAAKBgQDX3+ZW5aiKUpH8y15RhSo+b3+ZiUo1QpO+0XdNCI/pkyQJx9Vp" +
-            "sJgEQgsaOvQeqSObJ98q2mhvXIHeFQ7aVpLXThgB/3Z+SgDtBAJfsANJm6EUbXBI" +
-            "DTTCSaZ4t/WKfZ/QjLqvdW+adDjRd6pFu38emaIfZb97t/aF6Fy0s2Vj/wIDAQAB" +
-            "AoGBAIyHdeQltvTs0ZpWLX02Cg0A+njRtdw8DgAPTfF43G56WeCAFT6rNhq3f5DA" +
-            "xgBbrREpAI9eBNRRzTzsSnH6H7YVSSza6nQpD2RQ5y3W/Yb4/CI9xawJ3+XTXJGT" +
-            "fYJauR8MezTg+c9FB+JJMjaeDWTtNwp4aIBWNOGjxouq2PEJAkEA7gb7fqnGK0V6" +
-            "Wo5RTkETvRyQEJ4tPvCAN784b9OkQ5Fbr3NL9SJfpfPqprgpJBv71KujvMCPBUBk" +
-            "A+duE01uuwJBAOgstf/pqk3EVqG6SzO7g5pSNp7WwyKJyzppEpfuybFkUbpM4guC" +
-            "b0+rWj9k7TpKB6AaEvFEJF9kmrPuSqfFRY0CQQDFOOfddZKLfA/7RHy92FIgmbAM" +
-            "9OMMiX3Tsw9yKOysR56ua1v+izKxcL920JTWJJGvD2CmHu7iLQ4x5epg+AHNAkEA" +
-            "ihQNKWWOIzHhU823a8zZN64tTcnrw16vvs0+gZ1B1n4THPkcdjvcd0UxJwKfE0tz" +
-            "vYPEQDiGaTUrzFarj5uDAQJAciRbH8y/0J92nU7cL6EcDB1pqcypTU8r/SzJgPU1" +
-            "z2SzIsn9dv47OQD2ff8uVXc7+2Fs1W/K0/rOQ/1ch+jVdw==";
-    public final static String rsaPrivateKey = /*"-----BEGIN PRIVATE KEY-----" +*/
-            "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAK5dtsRi2Mvz4ESg" +
-                    "saIHQGFrrXlCMVCVj2+cx2Aa6W5cisGqVs52/39xAS2MlVC5KDOejTBdivoLtfbB" +
-                    "MHXdMNu+6S06r4uISzb3FZPLyCGSt2G9SGd1SEhwRoYLduim2HS2e1G6esfTfJZZ" +
-                    "r6148yAG97+8tE0uv667wq4Pza2dAgMBAAECgYEAlqkMyeWq85c2mbXLpnfjjgnP" +
-                    "K24hVELWXBc4Qnceaah2kF4RgXZaz5Ah92x4e/ZwoSGHV1oMQn+p65sDt2O22Utm" +
-                    "1P/QuCW/yur5WRGMVZTpVT6jjaRGDG6rJ5Ojb/bgehTpEh4vFyzCI1ynjQF1NYEN" +
-                    "c4wEmgAS4Y4v2/keB0ECQQDa15k1a/5SaSKK0T+XvBA3oAIoVDKKy/Cg2ljEc2Ss" +
-                    "suhb6eXrHkD7Ae+ZUsW9NJ3aQyjVKAip8sA0l/2qdshRAkEAy/jf6uQG6utXA/mg" +
-                    "eEl238JpvYCDaoaJ7Lp0H7yisdND4P+LH+BLECbH3gdkHUsUKyVc6M3VOOx6ylbx" +
-                    "Ss6JjQJBANC1KVJ/ie7CgcTuRr3JB5ZlLWmU0xb35KcjVeEVRABIJ73w1etj0QkS" +
-                    "EZWiER+fHKRZxIl1Qr4B2zjNc4is++ECQAtqfn3TDWAQk+oxCn4w/mo/o1Nr4e8Q" +
-                    "YJ/TP7SXBjQVsvLg2pSKJSleQkl2+G97SEGx8aVF/+0Trzur6g1ZyfECQQCEjduu" +
-                    "H3/mr5pEqIf09zfGALylS8b8qanffHbeTYZnwWpbrOhbm1q0INsQnNNPsMgs2go6" +
-                    "ygH2m/4tG1stVNJ8"/* +
-                "-----END PRIVATE KEY-----"*/;
+    public static String caPrivateKey = "MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCzuiVPRgrcWwrl\n" +
+            "n4qDfyo66k5sq2KclIvNjPmJaBNfLdPAWAKoVvr6BHh0iJaEq8tg54U1bVwjw1ow\n" +
+            "xRyLqleL+EbpzEJ6kSc/EBbPfkmQe0LvqrFP6fOGCDywtGDepaAcQ1ZHFgVfMeJy\n" +
+            "RMtqFr+L7UjakEt+jQiO6L4k/pJAsOmEPGEo07VhNxsxNQ5rSuxD8ylUEXm5G4iG\n" +
+            "xz0eIQcKGO9PDWoaGM+valhDFESaU9ilii/ggDuniIBSoDJx9SfriQN5ZWdh4rs7\n" +
+            "iMEl9qwK8Ij1AEpTAlw5f1AvJyxG41NLFWIXV2+Y0IglvVjUf8f7zTK6ID2NJEct\n" +
+            "Xf9CdLDbAgMBAAECggEBAKFkQAq+6BPWwaNPsA/DSsXbEA+vm37mOeCcfpywU+z9\n" +
+            "dxBbOA+5A+ktyIlE+n0q1Bgx70H58WrACyaOasLUdYdgrTVX0j7ESAzuQr2TNzZC\n" +
+            "KeqUSmNrv94VWYKIiBCHhI68vSZalPpWDnX0ZwHeaaWar/hs6Q48UXobcFxCKk1h\n" +
+            "zmclcpNZDpYxfddBGpkJQMCvVl0jC9vgp67dSwvnbdtjFcNBCGpUajJnGmQHk+jA\n" +
+            "YeOvn7Cm4jyFlednTSLBD/c2SJkBvCbBCSG4MZ1OSTyx9NxeAtXuQjJmXBd7kcRa\n" +
+            "kX4fPewd9HaQzKxYWfgJ32lfJwD+XWiHi+FVA3q3D9ECgYEA5Cne6fZoUGTR1HJp\n" +
+            "x9Iy1DFG5zQRW/V1oxKpEb9EbZKzFvjciexUM96+9agjDgGpoGLrbskaNlmZt4Zo\n" +
+            "lXqTJfIacX5xhRmDQNtIzw0IY4ia5wkmbsPnp9MzwdzqrOPknBiHpByt+OOBts9S\n" +
+            "ZlzX1RWlkPBEyriBI2Mhh7ZPlzMCgYEAyad7Y+fd84C64jJmKDRFbQzCyV0Lzxqm\n" +
+            "RtNLlnu6+sfEonO/9e1S7tgAkTFdQg+6BTniFxN2sdOmzJqfUqAI3FU3FTaVvtz2\n" +
+            "dQ18YfjYiiwGo5X/CTQW6lGl1CXKMUC9602AvWdEppGUmDM59fVvovMtGSfFfPiJ\n" +
+            "qiOosezZ37kCgYEAwhZQFovSfpjU2bid/Sn0rQZh/ykOn0A1Wov0IDGo/uCs0ZzO\n" +
+            "1dCgbCNOI+BsOWz2o4WiKnKNhrA/j5uZeZZ0d/Hzxpm97XAfc9tVmzPF8A1zX5cs\n" +
+            "B0tE00FZJM9NHdcaUCKZt+Phpfe6Dw1bVdIik5O/bITGr/+1cqnQCwbtu3sCgYA6\n" +
+            "TVX7eJpPQLTHmVK35QT9lmbq2SAE7OuOJqEADR3uS7uqTFT/wXHs5D6lu+P+qZVa\n" +
+            "1XVsvo/eshbTqRDPTr3BFlIqq/F3kWMgTJndqZjRuhDhUwi9nHXToW+UeqiOvO0s\n" +
+            "Duhd2nGaxxRzPLxRRHjWYAB1+W27yA/lRRIM/zGu4QKBgQCq+M/P5mIVdV5SA84G\n" +
+            "XUmHxnHLxAxZEnsDAUzGviFZwpPGptiUsi1/xYGNpTqWo5ul/CO5YFMIarNI5r5U\n" +
+            "GYgqjWk5GqZBcd1ks9rxUfrFPJJyShoREqAF2zcsPyrkywAGmouDDmICiPQ3JqOF\n" +
+            "eehQZp/YJUlpYjU4lsmmASxeSw==\n";
+    public final static String rsaPrivateKey = "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAPddJ3PUyfNrMEQ3\n" +
+            "ko59PHQjJUlnnBvnuKysK4cOGdhfC2Z2FBqWAgjR+jN54WkykC+WeYcLWSlbtdUa\n" +
+            "9mcvHdtZsIRt/6kxJbiSZC4j7lzFFQlsKXux1o4MGsg2AREc8gJULXwAktOERUwf\n" +
+            "KO5HomfjNCbJg1tF5KS1j8GsVO8xAgMBAAECgYEA6eG1JMrj63jEmStmMb1txG1a\n" +
+            "mu4Q5z2QGgtr2HVXsIIlGEq6tWxyHf7TL4qkuz9onuYKn8n2Eqm44fZtVaBx+5ES\n" +
+            "zRpIvlTvaxmVu0HZ1hYAzUw1XyRnXNMKpL5tT4GCjm8+QGPzlGxgXI1sNg8r9Jaw\n" +
+            "9zRUYeA6LQR9RIMkHWUCQQD8QojjVoGjtiunoh/N8iplhUszZIavAEvmDIE+kVy+\n" +
+            "pA7hvlukLw6JMc7cfTcnHyxDo9iHVIzrWlTuKRq9KWVLAkEA+wgJS2sgtldnCVn6\n" +
+            "tJKFVwsHrWhMIU29msPPbNuWUD23BcKE/vehIyFu1ahNA/TiM40PEnzprQ5JfPxU\n" +
+            "16S78wJANTfMLTnYy7Lo7sqTLx2BuD0wqjzw9QZ4/KVytsJv8IAn65P/PVn4FRV+\n" +
+            "8KEx+3zmF7b/PT2nJRe/hycAzxtmlQJBAMrFwQxEqpXfoAEzx4lY2ZBn/nmaR/SW\n" +
+            "4VNEXCbocVC7qT1j1R5HVMgV13uKiTtq8dUGWmhqsi7x3XayNK5ECPUCQQDZaAN6\n" +
+            "tvIHApz9OLsXSw0jZirQ6KEYdharXbIVDy1W1sVE3lzLbqLdFp1bxAHQIvsYS5PM\n" +
+            "A9veSJh372RLJKkj\n";
+    public final String pk = /*"-----BEGIN PUBLIC KEY-----" +*/
+            "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCuXbbEYtjL8+BEoLGiB0Bha615" +
+                    "QjFQlY9vnMdgGuluXIrBqlbOdv9/cQEtjJVQuSgzno0wXYr6C7X2wTB13TDbvukt" +
+                    "Oq+LiEs29xWTy8ghkrdhvUhndUhIcEaGC3bopth0tntRunrH03yWWa+tePMgBve/" +
+                    "vLRNLr+uu8KuD82tnQIDAQAB" /*+
+                "-----END PUBLIC KEY-----"*/;
+
+    public static void main(String[] args) throws Exception {
+        String Daisign = "Version:1Serial Number:21Signature Algorithm:sha1WithRSAEncryptionIssuer:EMAILADDRESS=1354922069@qq.com, CN=127.0.0.1, OU=O, O=hit, L=Harbin, ST=ST, C=CNNot Before:Sun Dec 22 02:08:40 CST 2019Not After:Wed Jan 08 02:49:09 CST 2020Subject:EMAILADDRESS=1354922069@qq.com, CN=songyunzu, OU=none, O=none, L=harbin, ST=XX, C=CNSubject Public Key Info:MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCuXbbEYtjL8+BEoLGiB0Bha615QjFQlY9vnMdgGuluXIrBqlbOdv9/cQEtjJVQuSgzno0wXYr6C7X2wTB13TDbvuktOq+LiEs29xWTy8ghkrdhvUhndUhIcEaGC3bopth0tntRunrH03yWWa+tePMgBve/vLRNLr+uu8KuD82tnQIDAQAB";
+        String daisign = "Version:1Serial Number:21Signature Algorithm:sha1WithRSAEncryptionIssuer:EMAILADDRESS=1354922069@qq.com, CN=127.0.0.1, OU=O, O=hit, L=Harbin, ST=ST, C=CNNot Before:Sun Dec 22 02:08:40 CST 2019Not After:Wed Jan 08 02:49:09 CST 2020Subject:EMAILADDRESS=1354922069@qq.com, CN=songyunzu, OU=none, O=none, L=harbin, ST=XX, C=CNSubject Public Key Info:MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCuXbbEYtjL8+BEoLGiB0Bha615QjFQlY9vnMdgGuluXIrBqlbOdv9/cQEtjJVQuSgzno0wXYr6C7X2wTB13TDbvuktOq+LiEs29xWTy8ghkrdhvUhndUhIcEaGC3bopth0tntRunrH03yWWa+tePMgBve/vLRNLr+uu8KuD82tnQIDAQAB";
+        System.out.println(daisign.equals(Daisign));
+        SignAlgorithm signAlgorithm = new SignAlgorithm();
+        String sign = signAlgorithm.signNew(Daisign.getBytes(),caPrivateKey);
+        System.out.println("Sign ="+sign);
+
+    }
 }

@@ -55,6 +55,7 @@
         <servlet-name>default</servlet-name>
         <url-pattern>*.jpg</url-pattern>
     </servlet-mapping>
+
     <!--把applicationContext.xml加入到配置文件中-->
     <context-param>
         <param-name>contextConfigLocation</param-name>

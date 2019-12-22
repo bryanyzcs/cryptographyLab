@@ -22,7 +22,7 @@ public class Rsa {
 
 
     public String base64Encode(byte[] data) {
-        return new String(Base64.encodeBase64(data)) ;
+        return Base64.encodeBase64String(data);
     }
 
     public byte[] base64Decode(String data) throws IOException {
@@ -59,12 +59,12 @@ public class Rsa {
     }
     public byte[] decrypt(byte [] encrypted) throws Exception {
         Cipher cipher = Cipher.getInstance("RSA");
-        cipher.init(Cipher.DECRYPT_MODE, privateKey);
+        cipher.init(Cipher.DECRYPT_MODE, publicKey);
         return cipher.doFinal(encrypted);
     }
-    public byte[] encrypt(String message) throws Exception {
+    public byte[] encrypt(byte[] message) throws Exception {
         Cipher cipher = Cipher.getInstance("RSA");
-        cipher.init(Cipher.ENCRYPT_MODE, publicKey);
-        return cipher.doFinal(message.getBytes("UTF-8"));
+        cipher.init(Cipher.ENCRYPT_MODE, privateKey);
+        return cipher.doFinal(message);
     }
 }

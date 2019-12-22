@@ -1,12 +1,17 @@
 package certification.core;
 
 import certification.core.query.PathQuery;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.security.*;
 import java.security.cert.*;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**.
  * Handle the request from client.
@@ -30,6 +35,7 @@ public class Handler {
 
     /**
      * Certificate verified.
+     * 弃用
      * @return
      */
     public String certVerifiedHandler(String crtPath) {
@@ -128,29 +134,32 @@ public class Handler {
     /**
      * Check the validity of cert.
      * @cerPath -the cert's path.
-     * @return true if crt has expired, otherwise false
+     * @return true if crt has not expired, otherwise false
      */
     private boolean checkValidity(String cerPath) {
-        X509Certificate x509Certificate = null;
-        CertificateFactory certificateFactory = null;
+        File file = new File(cerPath);
+        boolean checkV = false;
         try {
-            certificateFactory = CertificateFactory.getInstance("X.509");
-            FileInputStream fileInputStream = null;
-            fileInputStream = new FileInputStream(cerPath);
-            x509Certificate = (X509Certificate) certificateFactory.generateCertificate(fileInputStream);
-            x509Certificate.checkValidity();
-            return false;
+            BufferedReader  in = new BufferedReader(new FileReader(file));
+            String nextLine = null;
+            while ((nextLine = in.readLine())!=null){
+                if(nextLine.contains("Not After:")){
+                    String[] split = nextLine.split("Not After:");
+                    Date dateNow = new Date();
+                    Date datNoteAfter = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US).parse(split[0]);
+                    if (dateNow.compareTo(datNoteAfter)<0){
+                        checkV = true;
+                        break;
+                    }
+                }
+            }
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-            return false;
-        } catch (CertificateExpiredException e) {
-            return true;
-        } catch (CertificateNotYetValidException e) {
-            return false;
-        } catch (CertificateException e) {
             e.printStackTrace();
-            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
-
+        return checkV;
     }
 }

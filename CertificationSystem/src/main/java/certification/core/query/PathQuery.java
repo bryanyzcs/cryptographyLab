@@ -2,7 +2,7 @@ package certification.core.query;
 
 public class PathQuery {
     public static String certsPath = "certs\\";
-    public static String crlPath = "E:\\OpenSSL-Win64\\demoCA\\crl\\";
+    public static String crlPath = "E:\\OpenSSL-Win64\\demoCA\\crl\\cacrl.txt";
     public static String csrPath = "csr\\";
     public static String caCrtPath = "E:\\OpenSSL-Win64\\demoCA\\certs\\ca.crt";
     public static String caPrivateKey = "E:\\OpenSSL-Win64\\demoCA\\private\\ca_private.pem";
